@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="icon" href="img/fav-icon.png" type="image/x-icon" />
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Cake - Bakery</title>
+
+        <!-- Icon css link -->
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="vendors/linearicons/style.css" rel="stylesheet">
+        <link href="vendors/flat-icon/flaticon.css" rel="stylesheet">
+        <link href="vendors/stroke-icon/style.css" rel="stylesheet">
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        
+        <!-- Rev slider css -->
+        <link href="vendors/revolution/css/settings.css" rel="stylesheet">
+        <link href="vendors/revolution/css/layers.css" rel="stylesheet">
+        <link href="vendors/revolution/css/navigation.css" rel="stylesheet">
+        <link href="vendors/animate-css/animate.css" rel="stylesheet">
+        
+        <!-- Extra plugin css -->
+        <link href="vendors/owl-carousel/owl.carousel.min.css" rel="stylesheet">
+        <link href="vendors/magnifc-popup/magnific-popup.css" rel="stylesheet">
+        <link href="vendors/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+        <link href="vendors/nice-select/css/nice-select.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+        
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/responsive.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+		<style>
+		.login-form {
+			position: relative;
+			min-height: 90vh;
+			width: 100%;
+			max-width: 600px;
+			margin: auto;
+			background: #f195b2;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 20px;
+		}
+
+		.login-form .login-form-container {
+			position: relative;
+			width: 500px;
+			height: 500px;
+			background: #fff;
+			box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+			overflow: hidden;
+		}
+
+		.login-form .login-form-container .user {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: flex;
+		}
+
+		.login-form .login-form-container .user .imgBx {
+			position: relative;
+			width: 50%;
+			height: 100%;
+			background: #f195b2;
+			transition: 0.5s;
+		}
+
+		.login-form .login-form-container .user .imgBx img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.login-form .login-form-container .user .formBx {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			background: #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 40px;
+			transition: 0.5s;
+		}
+
+		.login-form .login-form-container .user .formBx form h2 {
+			font-size: 18px;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			text-align: center;
+			width: 100%;
+			margin-bottom: 10px;
+			color: #555;
+		}
+
+		.login-form .login-form-container .user .formBx form input {
+			position: relative;
+			width: 100%;
+			padding: 10px;
+			background: #f5f5f5;
+			color: #333;
+			border: none;
+			outline: none;
+			box-shadow: none;
+			margin: 8px 0;
+			font-size: 14px;
+			letter-spacing: 1px;
+			font-weight: 300;
+		}
+
+		.login-form .login-form-container .user .formBx form input[type='submit'] {
+			max-width: 100px;
+			background: #94c9d9;
+			color: #fff;
+			cursor: pointer;
+			font-size: 14px;
+			font-weight: 500;
+			letter-spacing: 1px;
+			transition: 0.5s;
+		}
+
+		.login-form .login-form-container .user .formBx form .signup {
+			position: relative;
+			margin-top: 20px;
+			font-size: 12px;
+			letter-spacing: 1px;
+			color: #555;
+			text-transform: uppercase;
+			font-weight: 300;
+		}
+
+		.login-form .login-form-container .user .formBx form .signup a {
+			font-weight: 600;
+			text-decoration: none;
+			color: #94c9d9;
+		}
+
+		.login-form .login-form-container .signupBx {
+			pointer-events: none;
+		}
+
+		.login-form .login-form-container.active .signupBx {
+			pointer-events: initial;
+		}
+
+		.login-form .login-form-container .signupBx .formBx {
+			left: 100%;
+		}
+
+		.login-form .login-form-container.active .signupBx .formBx {
+			left: 0;
+		}
+
+		.login-form .login-form-container .signupBx .imgBx {
+			left: -100%;
+		}
+
+		.login-form .login-form-container.active .signupBx .imgBx {
+			left: 0%;
+		}
+
+		.login-form .login-form-container .signinBx .formBx {
+			left: 0%;
+		}
+
+		.login-form .login-form-container.active .signinBx .formBx {
+			left: 100%;
+		}
+
+		.login-form .login-form-container .signinBx .imgBx {
+			left: 0%;
+		}
+
+		.login-form .login-form-container.active .signinBx .imgBx {
+			left: -100%;
+		}
+
+		@media (max-width: 991px) {
+			.login-form .login-form-container {
+				max-width: 400px;
+			}
+
+			.login-form .login-form-container .imgBx {
+				display: none;
+			}
+
+			.login-form .login-form-container .user .formBx {
+				width: 100%;
+			}
+		}
+
+	</style>
+
+		<style>
+			:root {
+				--blue: hsl(206,72%,68%);
+				--green: hsl(120,42%,54%);
+				--white: hsl(0, 0%, 100%);
+				--grey: hsl(226,10%,55%);
+				--disa: hsl(226,15%,83%);
+			}
+
+			#steps {
+				width: 500px;
+				margin: 50px auto;
+			}
+
+			.step {
+				width: 40px;
+				height:40px;
+				background-color: var(--white);
+				display: inline-block;
+				border: 4px solid;
+				border-color: transparent;
+				border-radius: 50%;
+
+				color: var(--disa);
+				font-weight: 600;
+				text-align: center;
+				line-height: 35px;
+			}
+			.step:first-child {
+				line-height: 40px;
+			}
+			.step:nth-child(n+2) {
+				margin: 0 0 0 100px;
+				transform: translate(0, -4px);
+			}
+			.step:nth-child(n+2):before {
+				width: 75px;
+				height: 3px;
+				display: block;
+				background-color: var(--white);
+				transform: translate(-95px, 21px);
+				content: '';
+			}
+			.step:after {
+				width: 150px;
+				display: block;
+				transform: translate(-55px, 3px);
+
+				color: var(--grey);
+				content: attr(data-desc);
+				font-weight: 400;
+				font-size: 13px;
+			}
+			.step:first-child:after {
+				transform: translate(-55px, -1px);
+			}
+			.step.active {
+				border-color: var(--blue);
+
+				color: var(--blue);
+			}
+			.step.active:before {
+				background: linear-gradient(to right, var(--green) 0%, var(--blue) 100%);
+			}
+			.step.active:after {
+				color: var(--blue);
+			}
+			.step.done {
+				background-color: var(--green);
+				border-color: var(--green);
+
+				color: var(--white);
+			}
+			.step.done:before {
+				background-color: var(--green);
+			}
+
+			#stepContent {
+				width: 100%;
+				max-width: 500px;
+				margin: 0 auto;
+			}
+
+			.step-content {
+				display: none;
+				padding: 15px;
+			}
+
+			.step-content.active {
+				display: block;
+				background-color: #f9f9f9;
+				border: 1px solid #ddd;
+				margin-top: 5px;
+			}
+
+			.form {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+				align-items: center;
+			}
+
+			label {
+				font-weight: bold;
+			}
+
+			input[type="text"],
+			input[type="radio"],
+			select {
+				width: 100%;
+				padding: 8px;
+				border: 1px solid #ddd;
+				border-radius: 5px;
+			}
+
+			button {
+				padding: 10px;
+				cursor: pointer;
+			}
+		</style>
+    </head>
+    <body>
+        
+        <!--================Main Header Area =================-->
+		<header class="main_header_area five_header">
+			<div class="top_header_area row m0">
+				<div class="container">
+					<div class="float-left">
+						<a href="tell:+18004567890"><i class="fa fa-phone" aria-hidden="true"></i> + (1800) 456 7890</a>
+						<a href="mainto:info@cakebakery.com"><i class="fa fa-envelope-o" aria-hidden="true"></i> info@cakebakery.com</a>
+					</div>
+					<div class="float-right">
+						<ul class="h_social list_style">
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+						</ul>
+						<ul class="h_search list_style">
+							<li class="shop_cart"><a href="cart.php"><i class="lnr lnr-cart"></i></a></li>
+							<li><a class="popup-with-zoom-anim" href="#login"><i class="fa fa-user"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="main_menu_two">
+				<div class="container">
+					<nav class="navbar navbar-expand-lg navbar-light bg-light">
+						<a class="navbar-brand" href="index.php"><img src="img/logo-2.png" alt=""></a>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="my_toggle_menu">
+                            	<span></span>
+                            	<span></span>
+                            	<span></span>
+                            </span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<ul class="navbar-nav justify-content-end">
+								<li><a href="index.php">Casa</a></li>
+								<li><a href="about-us.php">Nosotros</a></li>
+								<li><a href="shop.php">Productos</a></li>
+								<li><a href="contact.php">Contáctanos</a></li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</header>
+        <!--================End Main Header Area =================-->
+        
+        <!--================End Main Header Area =================-->
+        <section class="banner_area">
+        	<div class="container">
+        		<div class="banner_text">
+        			<h3>Productos</h3>
+        			<ul>
+        				<li><a href="index.php">Casa</a></li>
+        				<li><a href="shop.php">Productos</a></li>
+        			</ul>
+        		</div>
+        	</div>
+        </section>
+        <!--================End Main Header Area =================-->
+
+        <!--================Product Area =================-->
+        <section class="product_area p_100">
+        	<div class="container">
+        		<div class="d-flex flex-column justify-content-center align-items-center">
+					<div class="p_w_title mb-3">
+						<h2>¡Solo 4 pasos y listo!</h2>
+					</div>
+					<div id="steps">
+						<div class="step active" data-desc="Sabor">1</div>
+						<div class="step" data-desc="Relleno">2</div>
+						<div class="step" data-desc="Cant. pisos y cobertura">3</div>
+						<div class="step" data-desc="Evento">4</div>
+					</div>
+					<div id="stepContent">
+						<div class="step-content active">
+							<h3>Paso 1: Sabor</h3>
+							<div class="form">
+								<label for="sabor">Selecciona el sabor:</label>
+								<select id="sabor" name="sabor">
+									<option value="vainilla">Vainilla</option>
+									<option value="chocolate">Chocolate</option>
+									<option value="frutos secos">Frutos Secos</option>
+									<option value="frutos rojos">Frutos Rojos</option>
+								</select>
+								<button type="button" class="nextStep pest_btn">Agregar</button>
+							</div>
+
+						</div>
+						<div class="step-content">
+							<h3>Paso 2: Relleno</h3>
+							<div class="form">
+								<label for="relleno">Selecciona el relleno:</label>
+								<select id="relleno" name="relleno">
+									<option value="chocolate">Chocolate</option>
+									<option value="manjar blanco">Manjar blanco</option>
+									<option value="fresas acarameladas">Fresas Acarameladas</option>
+									<option value="mango acaramelado">Mango Acaramelado</option>
+								</select>
+								<button type="button" class="nextStep pest_btn">Agregar</button>
+							</div>
+
+						</div>
+						<div class="step-content">
+							<h3>Paso 3: Cant. pisos y cobertura</h3>
+							<div class="form">
+								<label for="cant-pisos">Cantidad de pisos:</label>
+								<input class="w-25" type="number" id="cant-pisos"
+									   name="cant-pisos" min="1" max="3">
+
+								<label>Selecciona la cobertura:</label>
+								<input type="radio" id="fondant" name="cobertura" value="fondant">
+								<label for="fondant">Fondan</label>
+
+								<input type="radio" id="chantilli" name="cobertura" value="chantilli">
+								<label for="chantilli">Chantilli</label>
+								<button type="button" class="nextStep pest_btn">Agregar</button>
+							</div>
+						</div>
+						<div class="step-content">
+							<h3>Paso 4: Evento</h3>
+							<div class="form">
+								<label for="evento">Selecciona el evento:</label>
+								<select id="evento" name="evento">
+									<option value="cumpleaños">Cumpleaños</option>
+									<option value="boda">Boda</option>
+									<option value="aniversario">Aniversario</option>
+								</select>
+								<button type="button" class="nextStep orderBtn pest_btn">Pedir</button>
+							</div>
+
+						</div>
+						<div class="step-content">
+							<h3>¡Gracias por tu pedido!</h3>
+							<p>En breve nos pondremos en contacto contigo para coordinar la entrega.</p>
+							<a class="pest_btn" href="cart.php">Ir al carrito</a>
+						</div>
+					</div>
+				</div>
+			</div>
+        </section>
+        <!--================End Product Area =================-->
+        
+        <!--================Footer Area =================-->
+        <footer class="footer_area">
+        	<div class="footer_widgets">
+        		<div class="container">
+        			<div class="row footer_wd_inner">
+        				<div class="col-lg-3 col-6">
+        					<aside class="f_widget f_about_widget">
+        						<img src="img/footer-logo.png" alt="">
+        						<p>Descubre la magia de nuestros pasteles artesanales, creados con pasión y cuidado por nuestros expertos pasteleros. Desde elegantes tartas de bodas hasta caprichosas cupcakes, cada creación es única y elaborada con los ingredientes más frescos y finos.</p>
+        						<ul class="nav">
+        							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+        							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+        						</ul>
+        					</aside>
+        				</div>
+        				<div class="col-lg-3 col-6">
+        					<aside class="f_widget f_link_widget">
+        						<div class="f_title">
+        							<h3>Link</h3>
+        						</div>
+        						<ul class="list_style">
+        							<li><a href="#">Politica de privacidad</a></li>
+        							<li><a href="#">Terminos y condiciones</a></li>
+        						</ul>
+        					</aside>
+        				</div>
+        				<div class="col-lg-3 col-6">
+        					<aside class="f_widget f_link_widget">
+        						<div class="f_title">
+        							<h3>Horario de atenciom</h3>
+        						</div>
+        						<ul class="list_style">
+        							<li><a href="#">Lunes-Viernes: 8 am - 8 pm</a></li>
+        							<li><a href="#">Sabado : 9am - 4pm</a></li>
+        							<li><a href="#">Domingo: Cerradp</a></li>
+        						</ul>
+        					</aside>
+        				</div>
+        				<div class="col-lg-3 col-6">
+        					<aside class="f_widget f_contact_widget">
+        						<div class="f_title">
+        							<h3>Informacion de contacto</h3>
+        						</div>
+        						<h4>957 496 387</h4>
+        						<p>Centro historico <br />JrLampa 665</p>
+        						<h5>cakebakery@contact.co.in</h5>
+        					</aside>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="footer_copyright">
+        		<div class="container">
+        			<div class="copyright_inner">
+        				<div class="float-left">
+        					<h5><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></h5>
+        				</div>
+        				<div class="float-right">
+        					<a href="#">Purchase Now</a>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </footer>
+        <!--================End Footer Area =================-->
+        
+        
+        <!--================Search Box Area =================-->
+		<div class="search_area zoom-anim-dialog mfp-hide" id="login">
+			<div class="login-form">
+				<div class="login-form-container">
+					<div class="user signinBx">
+						<div class="formBx">
+							<form action="" onsubmit="return false;">
+								<h2>Iniciar sesión</h2>
+								<input type="text" name="Usuario" id="Usuario" required placeholder="Usuario" />
+								<input type="password" name="Contraseña" id="Contraseña" placeholder="Contraseña" />
+								<input type="submit" name="" value="Login" />
+								<p class="signup">
+									¿No tienes una cuenta?
+									<a href="#" onclick="toggleForm();">Regístrate</a>
+								</p>
+							</form>
+						</div>
+					</div>
+					<div class="user signupBx">
+						<div class="formBx">
+							<form action="" onsubmit="return false;">
+								<h2>Crea una cuenta</h2>
+								<input type="text" name="Usuario" id="Usuario" required placeholder="Usuario" />
+								<input type="email" name="Correo" id="Correo" required placeholder="Correo" />
+								<input type="password" name="Contraseña" id="Contraseña" required placeholder="Contraseña" />
+								<input type="submit" name="" value="Registrarse" />
+								<p class="signup">
+									¿Ya tienes una cuenta?
+									<a href="#" onclick="toggleForm();">Inicia sesión</a>
+								</p>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        <!--================End Search Box Area =================-->
+
+
+		<script>
+			const toggleForm = () => {
+				const container = document.querySelector('.login-form-container');
+				container.classList.toggle('active');
+			};
+		</script>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const steps = document.querySelectorAll('.step');
+				const stepContents = document.querySelectorAll('.step-content');
+				const nextButtons = document.querySelectorAll('.nextStep');
+				const orderButton = document.querySelector('.orderBtn');
+
+				const products = {
+					'Sabor': '',
+					'Relleno': '',
+					'Cant. pisos y cobertura': '',
+					'Evento': ''
+				};
+
+				function handleNextStep(index) {
+					const currentStep = steps[index];
+					const currentStepContent = stepContents[index];
+					const nextStep = steps[index + 1];
+					const nextStepContent = stepContents[index + 1];
+
+					const currentStepDesc = currentStep.getAttribute('data-desc');
+					if (currentStepDesc === 'Sabor') {
+						products[currentStepDesc] = document.getElementById('sabor').value;
+					} else if (currentStepDesc === 'Relleno') {
+						products[currentStepDesc] = document.getElementById('relleno').value;
+					} else if (currentStepDesc === 'Cant. pisos y cobertura') {
+						const selectedPisos = document.getElementById('cant-pisos').value;
+						const selectedCobertura = document.querySelector('input[name="cobertura"]:checked').value;
+						products[currentStepDesc] = { pisos: selectedPisos, cobertura: selectedCobertura };
+					}
+
+					if (nextStep) {
+						currentStep.classList.remove('active');
+						currentStepContent.classList.remove('active');
+						nextStep.classList.add('active');
+						nextStepContent.classList.add('active');
+
+						// Añade la clase "done" y el icono a los pasos anteriores al paso actual
+						steps.forEach((step, stepIndex) => {
+							if (stepIndex <= index) {
+								step.classList.add('done');
+								step.innerHTML = '<i class="icon-ok"></i>';
+							}
+						});
+					} else {
+						currentStep.classList.remove('active');
+						currentStepContent.classList.remove('active');
+						nextStepContent.classList.add('active');
+
+						steps.forEach((step, stepIndex) => {
+							if (stepIndex <= index) {
+								step.classList.add('done');
+								step.innerHTML = '<i class="icon-ok"></i>';
+							}
+						});
+
+						nextButtons.forEach(button => button.removeEventListener('click', handleNextStep));
+					}
+				}
+
+				orderButton.addEventListener('click', () => {
+
+					products['Evento'] = document.getElementById('evento').value;
+
+					// Remueve los event listeners de los pasos al finalizar el pedido
+					steps.forEach(step => {
+						step.removeEventListener('click', handleNextStep);
+					});
+					nextButtons.forEach(button => {
+						button.removeEventListener('click', handleNextStep);
+					});
+
+					const cachedProducts = JSON.parse(localStorage.getItem('products')) || [];
+					cachedProducts.push(products);
+					localStorage.setItem('products', JSON.stringify(cachedProducts));
+					console.log(cachedProducts);
+				});
+
+				nextButtons.forEach((button, index) => {
+					button.addEventListener('click', () => {
+						handleNextStep(index);
+					});
+				});
+
+				steps.forEach((step, index) => {
+					step.addEventListener('click', () => {
+						const currentStep = steps[index];
+						const currentStepContent = stepContents[index];
+
+						if (!currentStep.classList.contains('active')) {
+							stepContents.forEach(content => {
+								content.classList.remove('active');
+							});
+
+							currentStepContent.classList.add('active');
+
+							steps.forEach(step => {
+								step.classList.remove('active');
+							});
+							currentStep.classList.add('active');
+
+							steps.forEach((step, stepIndex) => {
+								if (stepIndex <= index) {
+									step.classList.add('done');
+									step.innerHTML = '<i class="icon-ok"></i>';
+								}
+							});
+						}
+					});
+				});
+			});
+
+
+
+
+
+		</script>
+        
+        
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Rev slider js -->
+        <script src="vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
+        <script src="vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
+        <script src="vendors/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+        <script src="vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
+        <script src="vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+        <script src="vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script src="vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+        <!-- Extra plugin js -->
+        <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+        <script src="vendors/magnifc-popup/jquery.magnific-popup.min.js"></script>
+        <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+        <script src="vendors/isotope/isotope.pkgd.min.js"></script>
+        <script src="vendors/datetime-picker/js/moment.min.js"></script>
+        <script src="vendors/datetime-picker/js/bootstrap-datetimepicker.min.js"></script>
+        <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+        <script src="vendors/jquery-ui/jquery-ui.min.js"></script>
+        <script src="vendors/lightbox/simpleLightbox.min.js"></script>
+        
+        <script src="js/theme.js"></script>
+    </body>
+
+</html>
